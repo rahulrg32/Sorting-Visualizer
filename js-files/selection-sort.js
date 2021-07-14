@@ -1,5 +1,6 @@
 
 async function selectionSort() {
+    disableButtons();
 
     let bars = document.querySelectorAll(".bar");
 
@@ -43,11 +44,13 @@ async function selectionSort() {
 
     }
 
-    await delay(2000)
+    await delay(1000)
 
     bars.forEach(bar => {
         bar.style.backgroundColor = "#b123ac"; // purple color
     });
+
+    enableButtons();
 }
 
 

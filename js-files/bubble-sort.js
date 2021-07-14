@@ -1,5 +1,6 @@
 
 async function bubbleSort() {
+    disableButtons();
 
     let bars = document.querySelectorAll(".bar");
 
@@ -11,8 +12,6 @@ async function bubbleSort() {
             bars[j + 1].style.background = "#b18523";
 
             await delay(delayTime)
-
-            
 
             const height1 = bars[j].clientHeight;
             const height2 = bars[j + 1].clientHeight;
@@ -45,7 +44,7 @@ async function bubbleSort() {
         bar.style.backgroundColor = "#b123ac";
     });
 
-    // document.getElementsByClassName("bar").style.background = "#b123ac";
+    enableButtons();
 }
 
 

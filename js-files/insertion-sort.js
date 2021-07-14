@@ -1,4 +1,5 @@
 async function insertionSort() {
+    disableButtons();
 
     let bars = document.querySelectorAll(".bar");
 
@@ -48,6 +49,8 @@ async function insertionSort() {
     bars.forEach(bar => {
         bar.style.backgroundColor = "#b123ac"; // purple color
     });
+
+    enableButtons();
 }
 
 document.getElementById("isb").addEventListener("click", insertionSort);

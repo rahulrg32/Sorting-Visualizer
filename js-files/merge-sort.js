@@ -1,4 +1,5 @@
 async function mergesort() {
+    disableButtons();
     await mergeSort(0, arraySize - 1);
 
     let bars = document.querySelectorAll(".bar");
@@ -13,7 +14,7 @@ async function mergesort() {
         bar.style.backgroundColor = "#b123ac"; // purple
     }); 
 
-
+    enableButtons();
 }
 
 async function mergeSort(start, end) {

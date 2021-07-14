@@ -1,9 +1,11 @@
 
 const inputArraySize = document.getElementById("array-size");
-let arraySize = inputArraySize.value;
 const inputSortingSpeed = document.getElementById("sorting-speed");
 const generateArrayButton = document.getElementById("new-array-button");
 const arrayContainer = document.getElementById("array-container");
+const algoButtons = document.querySelectorAll(".algo-buttons button");
+
+let arraySize = inputArraySize.value;
 let sortingSpeed = inputSortingSpeed.value;
 let delayTime = 5000 / sortingSpeed;
 
@@ -21,7 +23,6 @@ function generateArray() {
         bar.style.height = `${barHeight * 3}px`;
         barWidth = (100 / arraySize) * 5;
         bar.style.width = `${barWidth}px`;
-        // bar.style.transform = `translateX(${i * 30}px)`;
         arrayContainer.appendChild(bar);
     }
 }
@@ -31,17 +32,16 @@ function updateArraySize() {
     generateArray();
 }
 
+function updateArraySpeed() {
+    sortingSpeed = inputSortingSpeed.value;
+    delayTime = 5000/sortingSpeed;
+}
+
 window.onload = updateArraySize();
 
 generateArrayButton.addEventListener("click", generateArray);
 inputArraySize.addEventListener("input", updateArraySize);
 inputSortingSpeed.addEventListener("input", updateArraySpeed);
-
-
-function updateArraySpeed() {
-    sortingSpeed = inputSortingSpeed.value;
-    delayTime = 5000/sortingSpeed;
-}
 
 
 
@@ -59,15 +59,6 @@ function insertBefore(el2, el1) {
 }
 
 
-
-function insertAfter(newNode, existingNode) {
-    existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
-}
-
-
-
-
-
 function delay(delayTime) {
     return new Promise((resolve) => {
         setTimeout(() => {
@@ -76,3 +67,21 @@ function delay(delayTime) {
     });
 } 
 
+
+function disableButtons() {
+    for (let i = 0; i < algoButtons.length; i++) {
+        algoButtons[i].disabled = true;
+    }
+
+    inputArraySize.disabled = true;
+    generateArrayButton.disabled = true;
+}
+
+function enableButtons() {
+    for (let i = 0; i < algoButtons.length; i++) {
+        algoButtons[i].disabled = false;
+    }
+
+    inputArraySize.disabled = false;
+    generateArrayButton.disabled = false;
+}
